@@ -5,6 +5,7 @@ import '../models/history_item.dart';
 import '../services/history_service.dart';
 import '../theme/app_theme.dart';
 import '../views/about_screen.dart';
+import '../views/currency_converter_screen.dart';
 
 class HistoryDrawer extends StatefulWidget {
   final AppThemeMode currentTheme;
@@ -248,40 +249,83 @@ class _HistoryDrawerState extends State<HistoryDrawer> {
                         },
                       ),
           ),
-          // About App option in history menu
+          // Options in history menu (Currency Converter & About App)
           SafeArea(
             top: false,
             child: Padding(
               padding: const EdgeInsets.only(left: 16, right: 16, bottom: 8, top: 4),
-              child: InkWell(
-                onTap: () {
-                  Navigator.pop(context);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (ctx) => AboutScreen(currentTheme: widget.currentTheme),
-                    ),
-                  );
-                },
-                borderRadius: BorderRadius.circular(12),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.info_outline_rounded, size: 18, color: colors.opBtnBg),
-                      const SizedBox(width: 8),
-                      Text(
-                        'حول التطبيق',
-                        style: TextStyle(
-                          color: colors.textSecondary,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (ctx) => CurrencyConverterScreen(currentTheme: widget.currentTheme),
+                          ),
+                        );
+                      },
+                      borderRadius: BorderRadius.circular(12),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.currency_exchange_rounded, size: 18, color: colors.accent),
+                            const SizedBox(width: 6),
+                            Text(
+                              'محول العملات',
+                              style: TextStyle(
+                                color: colors.textSecondary,
+                                fontSize: 13,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                    ],
+                    ),
                   ),
-                ),
+                  Container(
+                    height: 18,
+                    width: 1,
+                    color: colors.textSecondary.withValues(alpha: 0.2),
+                  ),
+                  Expanded(
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (ctx) => AboutScreen(currentTheme: widget.currentTheme),
+                          ),
+                        );
+                      },
+                      borderRadius: BorderRadius.circular(12),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.info_outline_rounded, size: 18, color: colors.opBtnBg),
+                            const SizedBox(width: 6),
+                            Text(
+                              'حول التطبيق',
+                              style: TextStyle(
+                                color: colors.textSecondary,
+                                fontSize: 13,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
