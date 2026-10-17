@@ -11,6 +11,7 @@ import '../widgets/history_drawer.dart';
 import '../widgets/scientific_keypad.dart';
 import '../widgets/unit_converter_view.dart';
 import 'about_screen.dart';
+import 'currency_converter_screen.dart';
 
 enum CalculatorMode { standard, scientific, converter }
 
@@ -288,6 +289,14 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     );
   }
 
+  void _openCurrencyConverter() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (ctx) => CurrencyConverterScreen(currentTheme: _currentTheme),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final colors = AppColors.of(_currentTheme);
@@ -317,6 +326,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                   onToggleAngleMode: _toggleAngleMode,
                   onOpenHistory: _openHistory,
                   onToggleTheme: _toggleTheme,
+                  onOpenCurrencyConverter: _openCurrencyConverter,
                   onOpenAbout: _openAbout,
                   currentTheme: _currentTheme,
                   scrollController: _scrollController,

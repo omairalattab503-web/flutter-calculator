@@ -10,6 +10,7 @@ class DisplayScreen extends StatelessWidget {
   final VoidCallback onToggleAngleMode;
   final VoidCallback onOpenHistory;
   final VoidCallback onToggleTheme;
+  final VoidCallback onOpenCurrencyConverter;
   final VoidCallback onOpenAbout;
   final AppThemeMode currentTheme;
   final ScrollController scrollController;
@@ -22,6 +23,7 @@ class DisplayScreen extends StatelessWidget {
     required this.onToggleAngleMode,
     required this.onOpenHistory,
     required this.onToggleTheme,
+    required this.onOpenCurrencyConverter,
     required this.onOpenAbout,
     required this.currentTheme,
     required this.scrollController,
@@ -119,6 +121,11 @@ class DisplayScreen extends StatelessWidget {
                     ),
                     tooltip: 'تغيير المظهر',
                     onPressed: onToggleTheme,
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.currency_exchange_rounded, color: colors.opBtnBg),
+                    tooltip: 'محول العملات',
+                    onPressed: onOpenCurrencyConverter,
                   ),
                   IconButton(
                     icon: Icon(Icons.info_outline_rounded, color: colors.textSecondary),
