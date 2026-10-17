@@ -84,7 +84,7 @@ Screenshots of the application will be added here.
 
 ## 👨‍💻 Developer
 
-**م عمر الخطاب**
+**م عمير العطاب**
 
 Built with Flutter & Dart as a practical mobile application development project.
 
